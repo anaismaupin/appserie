@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>The last episode</h1>
+
+
+<div class="container">
+    <div class="row">
+        <div id=btn1>
+            <div class="col-md-3 text-center" >
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <h2>Title</h2>
+        <td><%= post.title %></td>
+        <br>
+        <h2>Content</h2>
+        <td><%= post.content %></td>
+        <br>
+        <h2>Picture</h2>
+        <td><%= image_tag post.picture, class:'img-responsive' %></td>
+        <br>
+        <h2>Season</h2>
+        <td><%= post.season %></td>
+        <br>
+        <h2>Episode</h2>
+        <td><%= post.episode %></td>
+        <br>
+        <br>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+            </div>
+        </div>    
+    </div>
+</div>
+
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
